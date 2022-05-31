@@ -29,13 +29,18 @@ You can install the development version of heathR
 devtools::load_all(".")
 ```
 
-## Example
 
-This is a basic example which shows you how to solve a common problem:
+## Run
+
+Run the app like this
+
 
 ```{r example, eval=FALSE}
 library(healthR)
-## basic example code
+run_app()
 ```
 
 
+```{r, echo=FALSE, out.width="80%", eval=TRUE}
+knitr::include_graphics("https://raw.githubusercontent.com/personalscience/healthR_template/master/inst/img/initialTemplate1.jpg")
+```

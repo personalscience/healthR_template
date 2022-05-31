@@ -21,11 +21,13 @@ You can install the development version of heathR
 devtools::load_all(".")
 ```
 
-## Example
+## Run
 
-This is a basic example which shows you how to solve a common problem:
+Run the app like this
 
 ``` r
 library(healthR)
-## basic example code
+run_app()
 ```
+
+<img src="https://raw.githubusercontent.com/personalscience/healthR_template/master/inst/img/initialTemplate1.jpg" width="80%" />
