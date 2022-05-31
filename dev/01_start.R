@@ -19,13 +19,13 @@
 ## to change the name in the app_sys() function in app_config.R /!\
 ##
 golem::fill_desc(
-  pkg_name = "selfAnalysisShiny", # The Name of the package containing the App
-  pkg_title = "self_analysis", # The Title of the package containing the App
+  pkg_name = "healthR", # The Name of the package containing the App
+  pkg_title = "healthR_template", # The Title of the package containing the App
   pkg_description = "An interactive package stub that encourages easy study of self-tracking data. More to come later.", # The Description of the package containing the App
   author_first_name = "Richard", # Your First Name
   author_last_name = "Sprague", # Your Last Name
   author_email = "sprague@personalscience.com", # Your Email
-  repo_url = "https://github.com/personalscience/selfAnalysis" # The URL of the GitHub Repo (optional)
+  repo_url = "https://github.com/personalscience/healthR_template" # The URL of the GitHub Repo (optional)
 )
 
 ## Set {golem} options ----
