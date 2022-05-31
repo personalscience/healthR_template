@@ -13,13 +13,59 @@ mod_load_data_ui <- function(id){
     fluidPage(
       h1("Read your new data here"),
       fluidRow(
-        uiOutput(ns("ask_for_csv"))
+        uiOutput(ns("ask_for_csv")),
+        hr(),
+        wellPanel(dataTableOutput(ns("dataTable")))
       )
 
     )
 
   )
 }
+
+
+#' load_data Server Functions
+#'
+#' @noRd
+mod_load_data_server <- function(id){
+  moduleServer( id, function(input, output, session){
+    ns <- session$ns
+
+    # Ask for csv ----
+    output$ask_for_csv<- renderUI({
+
+      file_selection(item_id = ns("datafile_upload"), label = "CSV File", accept = ".csv")
+
+    })
+
+    # data_df_raw : Read Raw ----
+
+    data_df_raw <- reactive({
+      validate(
+        need(input$datafile_upload, "Upload a file please")
+      )
+      new_df <- data_read_csv(input$datafile_upload$datapath)
+    }
+    )
+
+    # output$glucoseTable ----
+    output$dataTable <- renderDataTable({
+
+      data_df_raw()
+    },
+    options = list(pageLength = 5)
+    )
+
+  })
+}
+
+## To be copied in the UI
+# mod_load_data_ui("load_data_1")
+
+## To be copied in the server
+# mod_load_data_server("load_data_1")
+
+
 
 #' @title Make a File Selection Object
 #' @param item_id character string NS id for UI
@@ -31,31 +77,16 @@ file_selection <- function(item_id, label = "Which File?", ...){
   return(selected)
 }
 
+#' @title Read a csv file
+#' @param filename character string
+#' @return dataframe of whatever CSV file it read.
+data_read_csv <- function(filename) {
+  readr::read_csv(file = filename)
 
-#' load_data Server Functions
-#'
-#' @noRd
-mod_load_data_server <- function(id){
-  moduleServer( id, function(input, output, session){
-    ns <- session$ns
-
-    # Ask Filepath ----
-    output$ask_for_csv<- renderUI({
-
-      file_selection(item_id = ns("file_upload"), label = "CSV File", accept = ".csv")
-
-    })
-
-  })
 }
 
-## To be copied in the UI
-# mod_load_data_ui("load_data_1")
 
-## To be copied in the server
-# mod_load_data_server("load_data_1")
-
-#' @description Demo for mod_filter
+#' @description Demo for mod_load_data
 #' @noRd
 #'
 demo_load_data <- function() {
