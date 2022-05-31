@@ -9,8 +9,29 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
-    fluidPage(
-      h1("selfAnalysisShiny")
+
+    navbarPage(id = "navbarpage",
+               title = tagList(
+                 tags$title("Personal Science"),
+                 a(
+                   alt = "Personal Science",
+                   href = "#",
+                   img(src = "www/PSILogo300.png",
+                       filetype = "image/png",
+                       width = "75%"))
+               ),
+               collapsible = TRUE,
+               inverse = TRUE,
+
+               theme = bslib::bs_theme(bootswatch = "cerulean"),
+
+
+               tabPanel("Read Data",
+                        fluidPage(
+                          #Application title
+                          mod_load_data_ui("load_data_1")
+                        ))
+
     )
   )
 }
