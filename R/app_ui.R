@@ -3,6 +3,7 @@
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
 #' @import shiny
+#' @importFrom bslib bs_theme
 #' @noRd
 app_ui <- function(request) {
   tagList(
@@ -30,8 +31,12 @@ app_ui <- function(request) {
                         fluidPage(
                           #Application title
                           mod_load_data_ui("load_data_1")
+                        )),
+               tabPanel("About",
+                        fluidPage(
+                          #Application title
+                          mod_about_ui("about_1")
                         ))
-
     )
   )
 }

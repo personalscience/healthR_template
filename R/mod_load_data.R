@@ -79,6 +79,7 @@ file_selection <- function(item_id, label = "Which File?", ...){
 
 #' @title Read a csv file
 #' @param filename character string
+#' @importFrom readr read_csv
 #' @return dataframe of whatever CSV file it read.
 data_read_csv <- function(filename) {
   readr::read_csv(file = filename)
