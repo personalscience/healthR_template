@@ -1,5 +1,5 @@
-Package: selfAnalysisShiny
-Title: self_analysis
+Package: healthR
+Title: healthR_template
 Version: 0.0.0.9000
 Authors@R: person('Richard', 'Sprague', email = 'sprague@personalscience.com', role = c('cre', 'aut'))
 Description: An interactive package stub that encourages easy study of self-tracking data. More to come later.
@@ -11,5 +11,10 @@ Imports:
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-URL: https://github.com/personalscience/selfAnalysis
-BugReports: https://github.com/personalscience/selfAnalysis/issues
+URL: https://github.com/personalscience/healthR_template
+BugReports: https://github.com/personalscience/healthR_template/issues
+Suggests: 
+    spelling,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Language: en-US
