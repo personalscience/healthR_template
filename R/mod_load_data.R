@@ -70,6 +70,7 @@ mod_load_data_server <- function(id){
 #' @title Make a File Selection Object
 #' @param item_id character string NS id for UI
 #' @param label character string name on label
+#' @param ... additional arguments if you want them
 #' @return file selection object
 file_selection <- function(item_id, label = "Which File?", ...){
 

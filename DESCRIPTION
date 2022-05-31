@@ -9,8 +9,10 @@ License: MIT + file LICENSE
 URL: https://github.com/personalscience/healthR_template
 BugReports: https://github.com/personalscience/healthR_template/issues
 Imports: 
+    bslib,
     config (>= 0.3.1),
     golem (>= 0.3.2),
+    readr,
     shiny (>= 1.7.1)
 Suggests: 
     spelling (>= 2.2),

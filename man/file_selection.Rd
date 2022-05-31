@@ -10,6 +10,8 @@ file_selection(item_id, label = "Which File?", ...)
 \item{item_id}{character string NS id for UI}
 
 \item{label}{character string name on label}
+
+\item{...}{additional arguments if you want them}
 }
 \value{
 file selection object
