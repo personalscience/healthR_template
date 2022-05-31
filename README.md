@@ -30,4 +30,4 @@ library(healthR)
 run_app()
 ```
 
-<img src="https://raw.githubusercontent.com/personalscience/healthR_template/master/inst/img/initialTemplate1.jpg" width="80%" />
+<img src="https://github.com/personalscience/healthR_template/blob/main/inst/img/InitialTemplate1.jpg?raw=true" width="80%" />
