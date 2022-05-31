@@ -11,14 +11,26 @@ mod_load_data_ui <- function(id){
   ns <- NS(id)
   tagList(
     fluidPage(
-      h1("This is a new app"),
+      h1("Read your new data here"),
       fluidRow(
-        uiOutput(ns("ask_for_csv")),
-        fileInput(ns("ask_filename_notes"), label = "Choose Notes File", accept = ".csv"))
+        uiOutput(ns("ask_for_csv"))
+      )
+
     )
 
   )
 }
+
+#' @title Make a File Selection Object
+#' @param item_id character string NS id for UI
+#' @param label character string name on label
+#' @return file selection object
+file_selection <- function(item_id, label = "Which File?", ...){
+
+  selected <- fileInput(inputId = item_id, label = label, ...)
+  return(selected)
+}
+
 
 #' load_data Server Functions
 #'
@@ -28,7 +40,7 @@ mod_load_data_server <- function(id){
     ns <- session$ns
 
     # Ask Filepath ----
-    output$ask_for_libreview_csv<- renderUI({
+    output$ask_for_csv<- renderUI({
 
       file_selection(item_id = ns("file_upload"), label = "CSV File", accept = ".csv")
 
@@ -43,12 +55,22 @@ mod_load_data_server <- function(id){
 ## To be copied in the server
 # mod_load_data_server("load_data_1")
 
-
+#' @description Demo for mod_filter
+#' @noRd
+#'
 demo_load_data <- function() {
 
-  ui <- mod_load_data_ui("load_data_1")
+  # Handle any unfinished business when the app closes.  Often useful for closing database connections.
+  onStop(function(){message("gracefully exiting...")})
+
+  ui <- fluidPage(
+    #tags$title("this is a new app"),
+    mod_load_data_ui("load_data_1")
+  )
   server <- function(input, output, session) {
     mod_load_data_server("load_data_1")
   }
   shinyApp(ui, server)
+
+
 }
